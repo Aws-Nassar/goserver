@@ -17,7 +17,7 @@ func main() {
 	// this blocks forever, until the server
 	// has an unrecoverable error
 	fmt.Println("server started on ", port)
-	err := m.ListenAndServe()
+	err := http.ListenAndServe(":"+port, m)
 	log.Fatal(err)
 }
 
