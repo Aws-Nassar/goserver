@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -11,14 +12,8 @@ func main() {
 	m := http.NewServeMux()
 
 	m.HandleFunc("/", handlePage)
-
-	const port = "8010"
-	srv := http.Server{
-		Handler:      m,
-		Addr:         ":" + port,
-		WriteTimeout: 30 * time.Second,
-		ReadTimeout:  30 * time.Second,
-	}
+	
+	port := os.Getenv("PORT")
 
 	// this blocks forever, until the server
 	// has an unrecoverable error
