@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 )
 
 func main() {
@@ -18,7 +17,7 @@ func main() {
 	// this blocks forever, until the server
 	// has an unrecoverable error
 	fmt.Println("server started on ", port)
-	err := srv.ListenAndServe()
+	err := m.ListenAndServe()
 	log.Fatal(err)
 }
 
